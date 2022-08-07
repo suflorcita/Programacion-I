@@ -1,18 +1,24 @@
 # Alumna: Sol Ayelen Cataldo 
 
-costo_total = 0
+import csv
 
-f = open('../Data/camion.csv', 'rt')
+def costo_camion(nombre_archivo): 
+	costo_total = 0
 
-headers = next(f).strip().split(',') 
-# strip elimina el "/n"
+	f = open(nombre_archivo, 'rt')
 
-for row in f: 
-	row = row.strip().split(',')
-	nro_cajones = int(row[1])
-	precio_cajones = float(row[2])
-	costo_total += nro_cajones * precio_cajones
+	rows = csv.reader(f)
 
-f.close()
+	headers = next(rows)
 
-print('Costo total', costo_total)
+	for row in rows: 
+		nro_cajones = int(row[1])
+		precio_cajones = float(row[2])
+		costo_total += nro_cajones * precio_cajones
+
+	f.close()
+
+	return costo_total
+
+costo = costo_camion('../Data/camion.csv')
+print('Costo total:', costo)
