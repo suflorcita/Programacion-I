@@ -1,10 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Aug  3 13:27:15 2022
-
-@author: infolab
-"""
+# Alumna: Sol Ayelén Cataldo 
 
 cadena = 'Geringoso'
 capadepenapa = ''
