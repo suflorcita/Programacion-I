@@ -1,6 +1,6 @@
 # Alumna: Sol Ayelén Cataldo 
 
-cadena = 'Geringoso'
+cadena = input('Ingrese una palabra: ')
 capadepenapa = ''
 vocales = ['a','e','i','o','u']
 i = 0
@@ -12,3 +12,5 @@ for c in cadena:
 
 print(capadepenapa)
       
+# input: Geringoso
+# output: Geperipingoposopo
