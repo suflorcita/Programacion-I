@@ -9,14 +9,14 @@ def buscar_precio(fruta):
 		if row[0] == fruta: 
 			precio = float(row[1])
 			existe_fruta = True
-			print("El precio de la", fruta, "es", precio)
+			print("El precio de un cajón de", fruta, "es:", precio)
 
 	if not existe_fruta: 
-		print(fruta, "no figura en el listado de precios")
+		print(fruta, "no figura en el listado de precios.")
 
 	f.close()
 
-	return precio 
+	pass
 
  
 
