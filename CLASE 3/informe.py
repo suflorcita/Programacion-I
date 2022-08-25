@@ -50,6 +50,6 @@ if diferencia > 0:
 else: 
 	balance = 'perdida'
 	
-print(f'El camion costó ${total_compra}, recaudó un total de ${total_recaudado} y tuvo una {balance} de ${abs(diferencia)}')
+print(f'El camion costó ${total_compra}, recaudó un total de ${total_recaudado} y tuvo una {balance} de ${abs(diferencia):.2f}')
 
 # salida: El camion costó $47671.15, recaudó un total de $62986.1 y tuvo una ganancia de $15314.949999999997
