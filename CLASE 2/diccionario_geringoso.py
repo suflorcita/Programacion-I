@@ -8,10 +8,10 @@ def pasar_geringoso(palabra):
 	i = 0
 
 	for c in palabra:
-	    capadepenapa += c
-	    if c in vocales: 
-	       capadepenapa = capadepenapa + 'p' + c
-
+		capadepenapa += c
+		if c in vocales: 
+			capadepenapa = capadepenapa + 'p' + c
+	
 	return capadepenapa
 
 
