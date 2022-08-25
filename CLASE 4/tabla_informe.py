@@ -1,0 +1,63 @@
+# Alumna:Sol Ayelen Cataldo 
+
+import csv
+
+
+def leer_camion(nombre_archivo): 
+    camion = []
+    
+    with open(nombre_archivo,'rt') as f: 
+        rows = csv.reader(f)
+        headers = next(rows)
+               
+        for n_row, row in enumerate(rows, start=1): 
+            record = dict(zip(headers,  row))
+            lote = {}
+            lote['nombre'] = record['nombre']
+            lote['cajones'] = int(record['cajones'])
+            lote['precio'] = float(record['precio'])
+            camion.append(lote)
+        
+        return camion 
+            
+
+def leer_precios(nombre_archivo): 
+	dict_fyv = {}
+
+	with open(nombre_archivo,'rt') as f: 
+		rows = csv.reader(f)
+		for row in rows: 
+			if row: 	
+				dict_fyv[row[0]] = float(row[1])
+
+	return dict_fyv
+
+def hacer_informe(cajones, precios):
+    lista_tuplas = []
+    
+    for cajon in cajones:
+        record = zip
+    return lista_tuplas
+    
+
+
+
+total_compra = 0 # precio que pago al productor de frutas 
+total_recaudado = 0  # precio total que recaudo con las ventas
+
+camion = leer_camion('../Data/fecha_camion.csv')
+precios = leer_precios('../Data/precios.csv')
+
+for fruta in camion: 
+	total_compra += fruta['cajones'] * fruta['precio']
+	total_recaudado += fruta['cajones'] * precios[fruta['nombre']]
+
+diferencia = total_recaudado - total_compra
+
+if diferencia > 0: 
+	balance = 'ganancia'
+else: 
+	balance = 'perdida'
+	
+print(f'El camion costó ${total_compra}, recaudó un total de ${total_recaudado} y tuvo una {balance} de ${abs(diferencia):.2f}')
+
