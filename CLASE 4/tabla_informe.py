@@ -10,8 +10,8 @@ def leer_camion(nombre_archivo):
         rows = csv.reader(f)
         headers = next(rows)
                
-        for n_row, row in enumerate(rows, start=1): 
-            record = dict(zip(headers,  row))
+        for row in rows: 
+            record = dict(zip(headers,  row)) # zipea los encabezados con las filas 
             lote = {}
             lote['nombre'] = record['nombre']
             lote['cajones'] = int(record['cajones'])
@@ -22,42 +22,36 @@ def leer_camion(nombre_archivo):
             
 
 def leer_precios(nombre_archivo): 
-	dict_fyv = {}
-
-	with open(nombre_archivo,'rt') as f: 
-		rows = csv.reader(f)
-		for row in rows: 
-			if row: 	
-				dict_fyv[row[0]] = float(row[1])
-
-	return dict_fyv
-
-def hacer_informe(cajones, precios):
-    lista_tuplas = []
+    dict_fyv = {}
     
-    for cajon in cajones:
-        record = zip
-    return lista_tuplas
-    
+    with open(nombre_archivo,'rt') as f: 
+        rows = csv.reader(f)
+        for row in rows: 
+            if row: 	# si la fila no está vacía 
+                dict_fyv[row[0]] = float(row[1])
+    return dict_fyv
 
+def hacer_informe(cajones, precios): 
+    informe = []
 
+    for cajon in cajones: 
+        linea_informe = ()
+        fruta = cajon['nombre']  
+        cambio = abs(cajon['precio'] - precios[fruta])
+        linea_informe = (cajon['nombre'], cajon['cajones'], cajon['precio'], cambio)
+        informe.append(linea_informe)
+    return informe  
 
-total_compra = 0 # precio que pago al productor de frutas 
-total_recaudado = 0  # precio total que recaudo con las ventas
 
 camion = leer_camion('../Data/fecha_camion.csv')
 precios = leer_precios('../Data/precios.csv')
+informe = hacer_informe(camion, precios)
 
-for fruta in camion: 
-	total_compra += fruta['cajones'] * fruta['precio']
-	total_recaudado += fruta['cajones'] * precios[fruta['nombre']]
+headers = ('Nombre', 'Cajones', 'Precio', 'Cambio')
 
-diferencia = total_recaudado - total_compra
+print(f'{headers[0]:>10s} {headers[1]:>10s} {headers[2]:>10s} {headers[3]:>10s}')
+print('---------- ---------- ---------- ----------')
 
-if diferencia > 0: 
-	balance = 'ganancia'
-else: 
-	balance = 'perdida'
-	
-print(f'El camion costó ${total_compra}, recaudó un total de ${total_recaudado} y tuvo una {balance} de ${abs(diferencia):.2f}')
-
+for nombre, cajones, precio, cambio in informe:
+    precio = "$" + str(f'{precio:0.2f}')
+    print(f'{nombre:>10s} {cajones:>10d} {precio:>10s} {cambio:>10.2f}')

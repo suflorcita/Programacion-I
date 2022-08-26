@@ -10,8 +10,8 @@ def leer_camion(nombre_archivo):
         rows = csv.reader(f)
         headers = next(rows)
                
-        for n_row, row in enumerate(rows, start=1): 
-            record = dict(zip(headers,  row))
+        for row in rows: 
+            record = dict(zip(headers,  row))  # zipea los encabezados con las filas 
             lote = {}
             lote['nombre'] = record['nombre']
             lote['cajones'] = int(record['cajones'])
