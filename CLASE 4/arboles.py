@@ -86,11 +86,11 @@ for parque in parques:
     mayor_inclinacion = especimen_mas_inclinado(arboles_parque)
     mayor_inclinacion_promedio =  especie_promedio_mas_inclinada(arboles_parque)
 
-    print(f'Las cinco especies más frecuentes en el parque {parque} son:')
+    print(f'Las cinco especies más frecuentes en el parque {parque} son:\n')
     
     for especies_comunes in especies_mas_comunes:
         print(f'La especie {especies_comunes[0]} con {especies_comunes[1]} ejemplares')
    
-    print(f'El promedio de alturas de los jacarandás es de: {promedio_jacaranda:0.2f} m y el arbol con altura máxima mide {maximo_jacaranda:0.2f} m')
+    print(f'\nEl promedio de alturas de los jacarandás es de: {promedio_jacaranda:0.2f} m y el arbol con altura máxima mide {maximo_jacaranda:0.2f} m')
     print(f'La especie con el ejemplar más inclinado es {mayor_inclinacion[1]}  y está inclinada {mayor_inclinacion[0]} grados.')
-    print(f'La especie que está en promedio más inclinada es {mayor_inclinacion_promedio[1]} y está inclinada {mayor_inclinacion_promedio[0]} grados')
+    print(f'La especie que está en promedio más inclinada es {mayor_inclinacion_promedio[1]} y está inclinada {mayor_inclinacion_promedio[0]} grados\n')
