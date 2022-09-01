@@ -78,13 +78,16 @@ parques = ['GENERAL PAZ', 'ANDES, LOS', 'CENTENARIO']
 for parque in parques: 
     arboles_parque = leer_parque(path, parque)
     especies_mas_comunes = contar_ejemplares(arboles_parque).most_common(5)
+   
     alturas_jacaranda = obtener_alturas(arboles_parque, 'Jacarandá')
     maximo_jacaranda = max(alturas_jacaranda)
     promedio_jacaranda = sum(alturas_jacaranda) / len(alturas_jacaranda)
+   
     mayor_inclinacion = especimen_mas_inclinado(arboles_parque)
     mayor_inclinacion_promedio =  especie_promedio_mas_inclinada(arboles_parque)
 
     print(f'Las cinco especies más frecuentes en el parque {parque} son:')
+    
     for especies_comunes in especies_mas_comunes:
         print(f'La especie {especies_comunes[0]} con {especies_comunes[1]} ejemplares')
    
