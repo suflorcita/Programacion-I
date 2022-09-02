@@ -1,6 +1,5 @@
 import csv
 from collections import Counter 
-from os import getcwd
 
 def leer_parque(nombre_archivo, parque): 
     info_parque = []
@@ -74,8 +73,18 @@ def leer_arboles(nombre_archivo):
         headers = next(rows)
 
         arboleda = [dict(zip(headers, row)) for row in rows]
-
+  
     return arboleda
+
+def medidas_de_especies(especies,arboleda): 
+    dict_especies = {}
+    #dict_especies = {especie: [(float(arbol['altura_tot']), float(arbol['diametro'])) for arbol in arboleda if arbol['nombre_com'] == especie] 
+    #                for especie in especies}
+    # con compresión de diccionarios = inentendible 
+    for especie in especies:
+        valores_dict = [(float(arbol['altura_tot']), float(arbol['diametro'])) for arbol in arboleda if arbol['nombre_com'] == especie]
+        dict_especies[especie] = valores_dict    
+    return dict_especies
 
 path = '../Data/arbolado-en-espacios-verdes.csv' 
 # 5.16 
@@ -91,3 +100,10 @@ G = [(float(arbol['altura_tot']), float(arbol['diametro'])) for arbol in arboled
 # print(G[1], G[2])
 # for row in G: 
 #     print(row)
+
+# 5.19
+especies = ['Eucalipto', 'Palo borracho rosado', 'Jacarandá']
+# verifico tener resultado esperado 
+dict = medidas_de_especies(especies, arboleda)
+for especie in especies: 
+    print(len(dict[especie]))
