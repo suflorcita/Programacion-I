@@ -15,8 +15,8 @@ while saldo > 0:
     total_pagado = total_pagado + pago_mensual
      
     if mes >= pago_extra_mes_comienzo and mes <= pago_extra_mes_fin:
-    	saldo -= pago_extra
-    	total_pagado += pago_extra
+        saldo -= pago_extra
+        total_pagado += pago_extra
     
     if saldo < 0:         
         total_pagado += abs(saldo)
