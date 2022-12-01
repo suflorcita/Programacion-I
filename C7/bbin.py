@@ -25,8 +25,8 @@ def busqueda_binaria(lista, x, verbose = False):
 def donde_insertar(lista, x):
     '''Dónde insertar
     Recibe una lista ordenada y un elemento x 
-    Devuelve la posición de ese elemento si está en la lista o
     la posición dónde se podría insertar el elemento. 
+    Devuelve la posición de ese elemento si está en la lista o
     '''
     
     izq = 0
@@ -54,5 +54,5 @@ def insertar(lista, x):
     else: 
         pos = donde_insertar(lista, x)
         lista = lista[0:pos] + [x] + lista[pos:]
-        return lista 
+        return pos
 

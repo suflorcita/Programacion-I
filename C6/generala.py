@@ -12,11 +12,15 @@ def tirar(N):
 
 
 def es_generala(tirada):
+    # '''Devuelve True si los cinco dados son iguales'''
+    # conj_tirada = set(tirada) 
+    # if len(conj_tirada) == 1: 
+    #     return True 
+    # return False 
+    # preguntar 
     '''Devuelve True si los cinco dados son iguales'''
-    conj_tirada = set(tirada) 
-    if len(conj_tirada) == 1: 
-        return True 
-    return False 
+    return len(set(tirada)) 
+ 
 
 
 def prob_generala(N):   
